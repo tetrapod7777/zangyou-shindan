@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>あなたの残業代、取り戻せるかも｜無料AI診断</title>
+<meta name="description" content="30秒で残業代の概算額を無料診断。証拠の集め方から弁護士への相談まで、ワンストップでサポートします。">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #1e3a5f;
+  --primary-light: #2d5a8e;
+  --accent: #f59e0b;
+  --accent-hover: #d97706;
+  --success: #10b981;
+  --danger: #ef4444;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #1e293b;
+  --text-light: #64748b;
+  --text-lighter: #94a3b8;
+  --border: #e2e8f0;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #0f2847 100%);
+  color: white;
+  padding: 60px 20px 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 60%);
+  animation: pulse-bg 8s ease-in-out infinite;
+}
+@keyframes pulse-bg {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(245,158,11,0.2);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+.hero h1 {
+  font-size: clamp(24px, 6vw, 36px);
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  position: relative;
+}
+.hero h1 .highlight {
+  color: var(--accent);
+  position: relative;
+}
+.hero h1 .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.hero p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  max-width: 480px;
+  margin: 0 auto 28px;
+  position: relative;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 800;
+  padding: 16px 36px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  box-shadow: 0 4px 20px rgba(245,158,11,0.4);
+}
+.hero-cta:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 28px rgba(245,158,11,0.5); }
+.hero-cta svg { width: 20px; height: 20px; }
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 32px;
+  position: relative;
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat-num {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--accent);
+}
+.hero-stat-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 2px;
+}
+
+/* ===== TRUST BAR ===== */
+.trust-bar {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 600;
+}
+.trust-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--success);
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== DIAGNOSTIC SECTION ===== */
+.diagnostic-section {
+  padding: 40px 0 60px;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.section-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.section-header p {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+/* Progress */
+.progress-container {
+  margin-bottom: 28px;
+}
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+.progress-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-lighter);
+  transition: var(--transition);
+}
+.progress-dot.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 12px rgba(30,58,95,0.3);
+}
+.progress-dot.done {
+  background: var(--success);
+  color: white;
+}
+.progress-label {
+  font-size: 10px;
+  color: var(--text-lighter);
+  font-weight: 600;
+  transition: var(--transition);
+  text-align: center;
+}
+.progress-label.active { color: var(--primary); }
+.progress-bar-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  border-radius: 2px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+/* Card */
+.diagnostic-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Steps */
+.step {
+  display: none;
+  animation: fadeSlideIn 0.4s ease;
+}
+.step.active { display: block; }
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step-question {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.step-sub {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+/* Options */
+.option-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  width: 100%;
+  font-family: inherit;
+  line-height: 1.4;
+}
+.option-btn:hover { border-color: var(--primary-light); background: #f0f5ff; }
+.option-btn.selected { border-color: var(--primary); background: #e8f0fe; }
+.option-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Slider */
+.slider-container {
+  padding: 8px 0 16px;
+}
+.slider-value-display {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.slider-value-num {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+}
+.slider-value-unit {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-left: 4px;
+}
+.slider-track {
+  position: relative;
+  width: 100%;
+  padding: 8px 0;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--success), var(--accent), var(--danger));
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid var(--primary);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: var(--transition);
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+}
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-lighter);
+  font-weight: 600;
+}
+
+/* Navigation */
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  gap: 12px;
+}
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+.btn-back:hover { border-color: var(--text-light); color: var(--text); }
+.btn-next {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  border: none;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-left: auto;
+  font-family: inherit;
+}
+.btn-next:hover { background: var(--primary-light); transform: translateY(-1px); }
+.btn-next:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+.btn-next svg, .btn-back svg { width: 16px; height: 16px; }
+
+/* ===== RESULT ===== */
+.result-section {
+  display: none;
+  padding: 40px 0 60px;
+  animation: fadeSlideIn 0.6s ease;
+}
+.result-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.result-header {
+  background: linear-gradient(135deg, var(--primary) 0%, #0f2847 100%);
+  color: white;
+  padding: 28px 24px;
+  text-align: center;
+}
+.result-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.85;
+  margin-bottom: 12px;
+}
+.result-amount {
+  font-size: clamp(40px, 10vw, 56px);
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.result-amount-sub {
+  font-size: 14px;
+  opacity: 0.6;
+}
+.result-body {
+  padding: 24px;
+}
+.result-breakdown {
+  margin-bottom: 24px;
+}
+.result-breakdown h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.breakdown-item:last-child { border-bottom: none; }
+.breakdown-label { color: var(--text-light); }
+.breakdown-value { font-weight: 700; }
+
+.result-evidence {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-bottom: 24px;
+}
+.result-evidence h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #166534;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.evidence-score {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.evidence-bar {
+  flex: 1;
+  height: 8px;
+  background: #dcfce7;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.evidence-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+.evidence-bar-fill.high { background: var(--success); }
+.evidence-bar-fill.mid { background: var(--accent); }
+.evidence-bar-fill.low { background: var(--danger); }
+.evidence-pct {
+  font-size: 20px;
+  font-weight: 900;
+  min-width: 48px;
+}
+.evidence-pct.high { color: var(--success); }
+.evidence-pct.mid { color: var(--accent); }
+.evidence-pct.low { color: var(--danger); }
+.evidence-msg {
+  font-size: 13px;
+  color: #166534;
+  line-height: 1.6;
+}
+
+.result-warning {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: #92400e;
+  display: flex;
+  gap: 8px;
+  line-height: 1.5;
+}
+.result-warning-icon { font-size: 18px; flex-shrink: 0; }
+
+.result-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cta-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #06c755;
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 18px 24px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  box-shadow: 0 4px 20px rgba(6,199,85,0.3);
+  text-decoration: none;
+}
+.cta-primary:hover { background: #05b34c; transform: translateY(-2px); }
+.cta-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  text-decoration: none;
+}
+.cta-secondary:hover { background: var(--primary-light); }
+.cta-note {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-lighter);
+  margin-top: 4px;
+}
+
+/* ===== FEATURES ===== */
+.features-section {
+  padding: 48px 0;
+  background: white;
+}
+.features-section h2 {
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.features-section .section-sub {
+  font-size: 14px;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 32px;
+}
+.feature-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.feature-card {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+}
+.feature-emoji {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.feature-text h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.feature-text p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ===== FLOW ===== */
+.flow-section {
+  padding: 48px 0;
+}
+.flow-section h2 {
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+.flow-step {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  padding-bottom: 28px;
+}
+.flow-step:last-child { padding-bottom: 0; }
+.flow-step::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 40px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.flow-step:last-child::before { display: none; }
+.flow-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 800;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.flow-content h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  padding-top: 8px;
+}
+.flow-content p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ===== PRICING ===== */
+.pricing-section {
+  padding: 48px 0;
+  background: white;
+}
+.pricing-section h2 {
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.pricing-section .section-sub {
+  font-size: 14px;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 32px;
+}
+.pricing-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pricing-card {
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  position: relative;
+  transition: var(--transition);
+}
+.pricing-card.popular {
+  border-color: var(--accent);
+  box-shadow: 0 4px 24px rgba(245,158,11,0.15);
+}
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  background: var(--accent);
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+.pricing-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+.pricing-target {
+  font-size: 13px;
+  color: var(--text-lighter);
+  margin-bottom: 8px;
+}
+.pricing-price {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+.pricing-price span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-light);
+}
+.pricing-note {
+  font-size: 12px;
+  color: var(--text-lighter);
+}
+
+/* ===== FAQ ===== */
+.faq-section {
+  padding: 48px 0;
+}
+.faq-section h2 {
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.faq-item {
+  background: white;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: var(--transition);
+  user-select: none;
+}
+.faq-q:hover { background: var(--bg); }
+.faq-arrow {
+  transition: var(--transition);
+  color: var(--text-lighter);
+}
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding: 0 18px 16px;
+}
+.faq-a p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ===== FINAL CTA ===== */
+.final-cta {
+  background: linear-gradient(135deg, var(--primary) 0%, #0f2847 100%);
+  color: white;
+  padding: 48px 20px;
+  text-align: center;
+}
+.final-cta h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.final-cta p {
+  font-size: 14px;
+  opacity: 0.75;
+  margin-bottom: 24px;
+}
+.final-cta .hero-cta {
+  font-size: 17px;
+  padding: 18px 40px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #0a1628;
+  color: rgba(255,255,255,0.4);
+  padding: 24px 20px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* ===== LOADING ANIMATION ===== */
+.loading-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.95);
+  z-index: 100;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.loading-overlay.show { display: flex; }
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.loading-sub {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 640px) {
+  .hero { padding: 80px 20px 60px; }
+  .diagnostic-card { padding: 40px 32px; }
+  .result-body { padding: 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">完全無料・30秒で完了</div>
+    <h1>あなたの残業代<br><span class="highlight">取り戻せるかも</span></h1>
+    <p>5つの質問に答えるだけ。未払い残業代の概算額と、今すぐできる証拠の集め方が分かります。</p>
+    <button class="hero-cta" onclick="scrollToDiag()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+      無料で診断する
+    </button>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">3,200+</div>
+        <div class="hero-stat-label">診断利用者数</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">87%</div>
+        <div class="hero-stat-label">請求可能と判定</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">143万</div>
+        <div class="hero-stat-label">平均回収見込み</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+    弁護士監修
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+    SSL暗号化通信
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+    返金保証付き
+  </div>
+</div>
+
+<!-- DIAGNOSTIC -->
+<section class="diagnostic-section" id="diagnostic">
+  <div class="container">
+    <div class="section-header">
+      <h2>残業代セルフ診断</h2>
+      <p>5つの質問に答えるだけで概算額が分かります</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-container">
+      <div class="progress-steps">
+        <div class="progress-step"><div class="progress-dot active" id="dot-1">1</div><div class="progress-label active" id="label-1">状況</div></div>
+        <div class="progress-step"><div class="progress-dot" id="dot-2">2</div><div class="progress-label" id="label-2">残業</div></div>
+        <div class="progress-step"><div class="progress-dot" id="dot-3">3</div><div class="progress-label" id="label-3">期間</div></div>
+        <div class="progress-step"><div class="progress-dot" id="dot-4">4</div><div class="progress-label" id="label-4">給与</div></div>
+        <div class="progress-step"><div class="progress-dot" id="dot-5">5</div><div class="progress-label" id="label-5">証拠</div></div>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Diagnostic Card -->
+    <div class="diagnostic-card">
+
+      <!-- Step 1: 雇用状況 -->
+      <div class="step active" id="step-1">
+        <div class="step-question">現在のお仕事の状況は？</div>
+        <div class="step-sub">あなたに合ったアドバイスをお伝えします</div>
+        <div class="option-grid">
+          <button class="option-btn" data-step="1" data-value="employed" onclick="selectOption(this)">
+            <div class="option-icon">💼</div>
+            <div>在職中（まだ辞めていない）</div>
+          </button>
+          <button class="option-btn" data-step="1" data-value="planning" onclick="selectOption(this)">
+            <div class="option-icon">📋</div>
+            <div>退職予定（辞めることは決めた）</div>
+          </button>
+          <button class="option-btn" data-step="1" data-value="quit" onclick="selectOption(this)">
+            <div class="option-icon">🚪</div>
+            <div>退職済み</div>
+          </button>
+        </div>
+        <div class="step-nav">
+          <div></div>
+          <button class="btn-next" id="next-1" disabled onclick="nextStep(2)">
+            次へ
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: 残業時間 -->
+      <div class="step" id="step-2">
+        <div class="step-question">月の平均残業時間はどれくらい？</div>
+        <div class="step-sub">おおよそで大丈夫です</div>
+        <div class="slider-container">
+          <div class="slider-value-display">
+            <span class="slider-value-num" id="hours-display">40</span>
+            <span class="slider-value-unit">時間/月</span>
+          </div>
+          <div class="slider-track">
+            <input type="range" min="10" max="120" value="40" step="5" id="hours-slider" oninput="updateHours(this.value)">
+          </div>
+          <div class="slider-labels">
+            <span>10h</span>
+            <span>40h</span>
+            <span>80h</span>
+            <span>120h</span>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="prevStep(1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 19l-7-7 7-7"/></svg>
+            戻る
+          </button>
+          <button class="btn-next" onclick="nextStep(3)">
+            次へ
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: 勤続年数 -->
+      <div class="step" id="step-3">
+        <div class="step-question">残業代が未払いの期間は？</div>
+        <div class="step-sub">時効は3年間。最大3年分まで請求できます</div>
+        <div class="option-grid">
+          <button class="option-btn" data-step="3" data-value="1" onclick="selectOption(this)">
+            <div class="option-icon">📅</div>
+            <div>1年以内</div>
+          </button>
+          <button class="option-btn" data-step="3" data-value="2" onclick="selectOption(this)">
+            <div class="option-icon">📅</div>
+            <div>1〜2年</div>
+          </button>
+          <button class="option-btn" data-step="3" data-value="3" onclick="selectOption(this)">
+            <div class="option-icon">📅</div>
+            <div>2〜3年</div>
+          </button>
+          <button class="option-btn" data-step="3" data-value="3+" onclick="selectOption(this)">
+            <div class="option-icon">📅</div>
+            <div>3年以上（時効あり）</div>
+          </button>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="prevStep(2)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 19l-7-7 7-7"/></svg>
+            戻る
+          </button>
+          <button class="btn-next" id="next-3" disabled onclick="nextStep(4)">
+            次へ
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4: 月収 -->
+      <div class="step" id="step-4">
+        <div class="step-question">月収（額面）はいくらくらい？</div>
+        <div class="step-sub">基本給＋手当の合計額です</div>
+        <div class="option-grid">
+          <button class="option-btn" data-step="4" data-value="20" onclick="selectOption(this)">
+            <div class="option-icon">💰</div>
+            <div>〜20万円</div>
+          </button>
+          <button class="option-btn" data-step="4" data-value="25" onclick="selectOption(this)">
+            <div class="option-icon">💰</div>
+            <div>20〜30万円</div>
+          </button>
+          <button class="option-btn" data-step="4" data-value="35" onclick="selectOption(this)">
+            <div class="option-icon">💰</div>
+            <div>30〜40万円</div>
+          </button>
+          <button class="option-btn" data-step="4" data-value="50" onclick="selectOption(this)">
+            <div class="option-icon">💰</div>
+            <div>40万円以上</div>
+          </button>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="prevStep(3)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 19l-7-7 7-7"/></svg>
+            戻る
+          </button>
+          <button class="btn-next" id="next-4" disabled onclick="nextStep(5)">
+            次へ
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 5: 証拠 -->
+      <div class="step" id="step-5">
+        <div class="step-question">手元にある証拠は？</div>
+        <div class="step-sub">当てはまるものをすべて選んでください（複数可）</div>
+        <div class="option-grid">
+          <button class="option-btn multi" data-step="5" data-value="timecard" onclick="toggleMulti(this)">
+            <div class="option-icon">🕐</div>
+            <div>タイムカード・勤怠記録</div>
+          </button>
+          <button class="option-btn multi" data-step="5" data-value="payslip" onclick="toggleMulti(this)">
+            <div class="option-icon">📄</div>
+            <div>給与明細</div>
+          </button>
+          <button class="option-btn multi" data-step="5" data-value="email" onclick="toggleMulti(this)">
+            <div class="option-icon">📧</div>
+            <div>業務メール・チャットログ</div>
+          </button>
+          <button class="option-btn multi" data-step="5" data-value="pclog" onclick="toggleMulti(this)">
+            <div class="option-icon">💻</div>
+            <div>PCログ・入退館記録</div>
+          </button>
+          <button class="option-btn multi" data-step="5" data-value="diary" onclick="toggleMulti(this)">
+            <div class="option-icon">📓</div>
+            <div>手書きメモ・日記</div>
+          </button>
+          <button class="option-btn multi" data-step="5" data-value="none" onclick="toggleMulti(this)">
+            <div class="option-icon">❌</div>
+            <div>何もない</div>
+          </button>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="prevStep(4)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 19l-7-7 7-7"/></svg>
+            戻る
+          </button>
+          <button class="btn-next" id="next-5" onclick="showResult()" style="background:var(--accent);color:var(--primary);">
+            診断結果を見る
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LOADING -->
+<div class="loading-overlay" id="loading">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">診断結果を計算中...</div>
+  <div class="loading-sub">労働基準法の法定計算式で算出しています</div>
+</div>
+
+<!-- RESULT -->
+<section class="result-section" id="result-section">
+  <div class="container">
+    <div class="result-card">
+      <div class="result-header">
+        <h2>あなたの未払い残業代（概算）</h2>
+        <div class="result-amount" id="result-amount">0万円</div>
+        <div class="result-amount-sub">※法定計算式に基づく参考値です</div>
+      </div>
+      <div class="result-body">
+
+        <div class="result-breakdown">
+          <h3>📊 算出内訳</h3>
+          <div class="breakdown-item">
+            <span class="breakdown-label">基礎時給（推定）</span>
+            <span class="breakdown-value" id="bd-hourly">—</span>
+          </div>
+          <div class="breakdown-item">
+            <span class="breakdown-label">月平均残業時間</span>
+            <span class="breakdown-value" id="bd-hours">—</span>
+          </div>
+          <div class="breakdown-item">
+            <span class="breakdown-label">割増率</span>
+            <span class="breakdown-value">1.25倍（法定）</span>
+          </div>
+          <div class="breakdown-item">
+            <span class="breakdown-label">請求可能期間</span>
+            <span class="breakdown-value" id="bd-period">—</span>
+          </div>
+        </div>
+
+        <div class="result-evidence" id="evidence-box">
+          <h3>📋 証拠の準備状況</h3>
+          <div class="evidence-score">
+            <div class="evidence-bar"><div class="evidence-bar-fill" id="evidence-fill" style="width:0%"></div></div>
+            <div class="evidence-pct" id="evidence-pct">0%</div>
+          </div>
+          <div class="evidence-msg" id="evidence-msg"></div>
+        </div>
+
+        <div class="result-warning">
+          <div class="result-warning-icon">⚠️</div>
+          <div>本診断は労働基準法の法定計算式に基づく参考値です。固定残業代の有効性や管理監督者該当性等の法的判断は含みません。正式な請求可能額は弁護士にご確認ください。</div>
+        </div>
+
+        <div class="result-cta">
+          <a class="cta-primary" href="#" id="line-cta">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            LINEで詳しい診断を受ける
+          </a>
+          <button class="cta-secondary" onclick="scrollToDiag()">もう一度診断する</button>
+          <div class="cta-note">※ 個人情報の入力は不要です</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="container">
+    <h2>選ばれる3つの理由</h2>
+    <p class="section-sub">弁護士に直接頼む前に、まず準備を整えませんか？</p>
+    <div class="feature-cards">
+      <div class="feature-card">
+        <div class="feature-emoji">📝</div>
+        <div class="feature-text">
+          <h3>何を集めればいいか、すぐ分かる</h3>
+          <p>あなたの状況に合わせた証拠チェックリストをお渡し。集め方のコツまで丁寧にガイドします。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-emoji">⚖️</div>
+        <div class="feature-text">
+          <h3>弁護士監修で安心</h3>
+          <p>提携弁護士が証拠をチェック。受任レベルまで仕上げるから、弁護士も即座に動けます。</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-emoji">🔄</div>
+        <div class="feature-text">
+          <h3>弁護士が受任しなければ全額返金</h3>
+          <p>固定金額+返金保証。成功報酬型と違い、事前に費用が確定するから安心です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow-section">
+  <div class="container">
+    <h2>ご利用の流れ</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <h3>無料診断で概算を確認</h3>
+          <p>30秒の診断で残業代の目安が分かります。LINEに登録すると、より詳しい診断結果をお届けします。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <h3>証拠チェックリストで準備</h3>
+          <p>あなた専用のチェックリストに沿って、必要な証拠を集めていきます。集め方のコツも細かくガイド。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <h3>プロが資料を整理</h3>
+          <p>集めた証拠をアップロードするだけ。弁護士がすぐ動ける形に整理・フォーマットします。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <h3>弁護士がチェック＆交渉開始</h3>
+          <p>提携弁護士が資料を確認し、受任判断。受任されればそのまま会社に請求・交渉に進みます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section">
+  <div class="container">
+    <h2>料金プラン</h2>
+    <p class="section-sub">回収見込み額に応じた固定料金。弁護士費用込みで追加なし。</p>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <div class="pricing-name">Sプラン</div>
+        <div class="pricing-target">回収見込み 〜50万円</div>
+        <div class="pricing-price">12.8万円<span>（税込）</span></div>
+        <div class="pricing-note">弁護士チェック＋交渉代行込み</div>
+      </div>
+      <div class="pricing-card popular">
+        <div class="pricing-badge">人気 No.1</div>
+        <div class="pricing-name">Aプラン</div>
+        <div class="pricing-target">回収見込み 〜100万円</div>
+        <div class="pricing-price">24.8万円<span>（税込）</span></div>
+        <div class="pricing-note">弁護士チェック＋交渉代行込み</div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Bプラン</div>
+        <div class="pricing-target">回収見込み 〜200万円</div>
+        <div class="pricing-price">49.8万円<span>（税込）</span></div>
+        <div class="pricing-note">弁護士チェック＋交渉代行込み</div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">C・Dプラン</div>
+        <div class="pricing-target">回収見込み 350万円〜</div>
+        <div class="pricing-price">88万円〜<span>（税込）</span></div>
+        <div class="pricing-note">弁護士チェック＋交渉代行込み</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <h2>よくあるご質問</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>本当に返金されますか？</span>
+        <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-a"><p>はい。提携弁護士が受任に至らなかった場合は、プラン料金を全額返金します。返金条件はサービス規約に明記しております。</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>会社にバレませんか？</span>
+        <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-a"><p>証拠収集の段階では会社への通知は一切行いません。弁護士が会社に連絡するのは、お客様が正式に依頼された後です。</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>退職してからでも請求できますか？</span>
+        <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-a"><p>はい。退職後でも時効（3年）以内であれば請求できます。ただし、退職後は証拠収集が難しくなるため、早めのご相談をおすすめします。</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>弁護士に直接頼むのと何が違いますか？</span>
+        <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-a"><p>弁護士に直接依頼すると成功報酬20-30%が一般的。当サービスは固定料金で証拠整理から弁護士の交渉代行まで含み、合計費用がほぼ同等か低くなるケースが多いです。さらに返金保証付きです。</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>証拠が何もなくても大丈夫ですか？</span>
+        <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="faq-a"><p>在職中であれば今からでも証拠を集められます。退職済みでもICカード履歴やスマホの位置情報など、意外と使える証拠があります。まずは無料診断でご状況をお聞かせください。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>まずは30秒、無料で診断</h2>
+    <p>あなたの残業代がいくらになるか、今すぐ確認しましょう</p>
+    <button class="hero-cta" onclick="scrollToDiag()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+      無料で診断する
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    残業代請求 証拠収集サポート<br>
+    本サービスは法律事務を提供するものではありません。<br>
+    資料の法的有効性の判断は提携弁護士が行います。<br>
+    © 2026 All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+// State
+const answers = { status: '', hours: 40, period: '', salary: '', evidence: [] };
+let currentStep = 1;
+
+// Scroll to diagnostic
+function scrollToDiag() {
+  document.getElementById('diagnostic').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Option selection (single)
+function selectOption(btn) {
+  const step = btn.dataset.step;
+  const value = btn.dataset.value;
+  // Deselect siblings
+  btn.parentElement.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  // Store answer
+  if (step === '1') answers.status = value;
+  if (step === '3') answers.period = value;
+  if (step === '4') answers.salary = value;
+  // Enable next button
+  const nextBtn = document.getElementById(`next-${step}`);
+  if (nextBtn) nextBtn.disabled = false;
+}
+
+// Multi-select (evidence)
+function toggleMulti(btn) {
+  const value = btn.dataset.value;
+  if (value === 'none') {
+    // Deselect all others
+    btn.parentElement.querySelectorAll('.option-btn').forEach(b => {
+      if (b !== btn) b.classList.remove('selected');
+    });
+    btn.classList.toggle('selected');
+    answers.evidence = btn.classList.contains('selected') ? ['none'] : [];
+  } else {
+    // Deselect "none"
+    btn.parentElement.querySelector('[data-value="none"]')?.classList.remove('selected');
+    btn.classList.toggle('selected');
+    answers.evidence = [...btn.parentElement.querySelectorAll('.option-btn.selected')]
+      .map(b => b.dataset.value)
+      .filter(v => v !== 'none');
+  }
+}
+
+// Slider
+function updateHours(val) {
+  answers.hours = parseInt(val);
+  document.getElementById('hours-display').textContent = val;
+}
+
+// Navigation
+function nextStep(step) {
+  document.getElementById(`step-${currentStep}`).classList.remove('active');
+  document.getElementById(`step-${step}`).classList.add('active');
+  currentStep = step;
+  updateProgress();
+}
+function prevStep(step) {
+  document.getElementById(`step-${currentStep}`).classList.remove('active');
+  document.getElementById(`step-${step}`).classList.add('active');
+  currentStep = step;
+  updateProgress();
+}
+
+function updateProgress() {
+  const pct = ((currentStep - 1) / 4) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  for (let i = 1; i <= 5; i++) {
+    const dot = document.getElementById(`dot-${i}`);
+    const label = document.getElementById(`label-${i}`);
+    dot.className = 'progress-dot';
+    label.className = 'progress-label';
+    if (i < currentStep) { dot.classList.add('done'); dot.innerHTML = '✓'; }
+    else if (i === currentStep) { dot.classList.add('active'); dot.innerHTML = i; label.classList.add('active'); }
+    else { dot.innerHTML = i; }
+  }
+}
+
+// Calculate result
+function showResult() {
+  // Show loading
+  const loading = document.getElementById('loading');
+  loading.classList.add('show');
+
+  setTimeout(() => {
+    // Calculate
+    const salaryNum = parseInt(answers.salary) || 25;
+    const hourlyBase = Math.round((salaryNum * 10000) / 160);
+    const overtimeRate = 1.25;
+    const hourlyOT = Math.round(hourlyBase * overtimeRate);
+    let months;
+    switch (answers.period) {
+      case '1': months = 12; break;
+      case '2': months = 18; break;
+      case '3': months = 30; break;
+      case '3+': months = 36; break;
+      default: months = 24;
+    }
+    const totalAmount = Math.round((hourlyOT * answers.hours * months) / 10000);
+
+    // Evidence score
+    const evidenceWeights = { timecard: 30, payslip: 20, email: 18, pclog: 22, diary: 10, none: 0 };
+    let evidenceScore = answers.evidence.reduce((sum, e) => sum + (evidenceWeights[e] || 0), 0);
+    evidenceScore = Math.min(evidenceScore, 100);
+
+    // Update UI
+    document.getElementById('result-amount').textContent = totalAmount + '万円';
+    document.getElementById('bd-hourly').textContent = hourlyOT.toLocaleString() + '円/h（×1.25）';
+    document.getElementById('bd-hours').textContent = answers.hours + '時間/月';
+    document.getElementById('bd-period').textContent = months + 'ヶ月分';
+
+    // Evidence
+    const fill = document.getElementById('evidence-fill');
+    const pctEl = document.getElementById('evidence-pct');
+    fill.style.width = evidenceScore + '%';
+    pctEl.textContent = evidenceScore + '%';
+    if (evidenceScore >= 60) {
+      fill.className = 'evidence-bar-fill high';
+      pctEl.className = 'evidence-pct high';
+      document.getElementById('evidence-msg').textContent = '証拠が充実しています。弁護士の受任可能性が高いです。資料を整理すれば、すぐに請求手続きに進めます。';
+    } else if (evidenceScore >= 30) {
+      fill.className = 'evidence-bar-fill mid';
+      pctEl.className = 'evidence-pct mid';
+      document.getElementById('evidence-msg').textContent = '証拠はありますが、追加で集めるとより有利になります。当サービスのチェックリストで不足分を補えます。';
+    } else {
+      fill.className = 'evidence-bar-fill low';
+      pctEl.className = 'evidence-pct low';
+      document.getElementById('evidence-msg').textContent = answers.status === 'employed'
+        ? '今からでも証拠は集められます。在職中は有利です。チェックリストに沿って準備を始めましょう。'
+        : '証拠が不足しています。ICカード履歴やスマホの位置情報など、まだ使える証拠があるかもしれません。';
+    }
+
+    // Hide loading, show result
+    loading.classList.remove('show');
+    document.querySelector('.diagnostic-section').style.display = 'none';
+    document.getElementById('result-section').style.display = 'block';
+    document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('progress-fill').style.width = '100%';
+  }, 2200);
+}
+
+// FAQ
+function toggleFaq(el) {
+  el.closest('.faq-item').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
